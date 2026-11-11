@@ -1,12 +1,12 @@
 # Dragon Slayer
 
-Ett litet konsolspel i C# från lektionen [Dragon Slayer](https://malmludvig.github.io/BED26-lektioner/vecka9.html) (vecka 9).
+Ett litet RPG i konsolen, skrivet i C# till lektionen [Dragon Slayer](https://malmludvig.github.io/BED26-lektioner/vecka9.html) (vecka 9).
 
 ## Kom igång
 
 1. Klona repot.
 2. Öppna `DragonSlayer.slnx` i Visual Studio.
-3. Kör programmet (F5).
+3. Kör programmet (F5) och välj **1. Spela Dragon Slayer** – eller **2** för att köra exemplen från lektionen.
 
 Eller i terminalen:
 
@@ -14,14 +14,42 @@ Eller i terminalen:
 dotnet run --project DragonSlayer
 ```
 
+## Spelet
+
+Drakkungen härjar i landet. Bli stark nog att besegra honom!
+
+| Val | Vad händer |
+|-----|------------|
+| Gå på äventyr | Slåss mot en goblin, ett troll eller en drake. Vinn guld och få mer maxhälsa. |
+| Vila vid lägerelden | Få full hälsa – men ibland smyger en goblin fram ur mörkret. |
+| Besök handlaren | Köp läkedrycker, en trollstav eller en stridsyxa. |
+| Utmana Drakkungen | Slutbossen. Besegra honom och vinn spelet. |
+
+I striden kan du **attackera**, **dricka en läkedryck** eller försöka **fly**.
+
+| Fiende | Hälsa | Skada | Svårighet | Guld |
+|--------|-------|-------|-----------|------|
+| Goblin | 30 | 5 | Easy | 10 |
+| Troll | 60 | 9 | Medium | 25 |
+| Drake | 100 | 10 | Hard | 50 |
+| Drakkungen | 180 | 16 | Hard | 50 |
+
 ## Vad finns i koden?
 
 | Fil | Begrepp |
 |-----|---------|
 | `Difficulty.cs` | Enum – fiendens svårighetsgrad |
 | `Enemy.cs` | Abstrakt klass – det alla fiender har gemensamt |
-| `Goblin.cs`, `Dragon.cs` | Arv – en Goblin *är en* Enemy |
+| `Goblin.cs`, `Troll.cs`, `Dragon.cs`, `DragonKing.cs` | Arv – en Goblin *är en* Enemy |
 | `IWeapon.cs` | Interface – kontraktet för ett vapen |
-| `Sword.cs`, `Bow.cs`, `MagicWand.cs` | Implementationer av `IWeapon` |
+| `Sword.cs`, `Bow.cs`, `MagicWand.cs`, `Axe.cs` | Implementationer av `IWeapon` |
 | `Player.cs` | Composition – en Player *har ett* IWeapon som kan bytas |
-| `Program.cs` | Klass och objekt, polymorfism, byte av vapen och en vapenmeny |
+| `Game.cs` | Spelet: menyn, striderna, vilan och handlaren |
+| `Examples.cs` | Exemplen från lektionen, steg för steg |
+| `Program.cs` | Startmenyn |
+
+## Bygg vidare
+
+- Lägg till en ny fiende, till exempel en `Skeleton`. Vad behöver du ändra i `Game.cs`?
+- Lägg till ett nytt vapen hos handlaren.
+- Låt Drakkungen göra dubbel skada var tredje runda.

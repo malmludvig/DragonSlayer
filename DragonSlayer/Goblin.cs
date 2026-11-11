@@ -4,6 +4,8 @@ public class Goblin : Enemy
     {
     }
 
+    public override int Damage => 5;
+
     public override void Attack()
     {
         Console.WriteLine("Goblinen attackerar med sin klubba!");

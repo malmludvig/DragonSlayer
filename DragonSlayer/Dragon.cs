@@ -4,6 +4,8 @@ public class Dragon : Enemy
     {
     }
 
+    public override int Damage => 10;
+
     public override void Attack()
     {
         Console.WriteLine("Draken sprutar eld!");
