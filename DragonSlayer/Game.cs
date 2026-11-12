@@ -4,6 +4,9 @@ public class Game
     private string weaponName = "Svärd";
     private bool bossDefeated = false;
 
+    // Fienderna som kan dyka upp läses in från enemies.json
+    private List<string> enemyNames = EnemyLoader.LoadNames(Path.Combine(AppContext.BaseDirectory, "enemies.json"));
+
     public void Run()
     {
         Console.WriteLine("=== DRAGON SLAYER ===");
@@ -67,17 +70,9 @@ public class Game
 
     private Enemy RandomEnemy()
     {
-        int roll = Random.Shared.Next(100);
-
-        if (roll < 45)
-        {
-            return new Goblin();
-        }
-        if (roll < 75)
-        {
-            return new Troll();
-        }
-        return new Dragon();
+        // Ett namn som står flera gånger i filen dyker upp oftare
+        string name = enemyNames[Random.Shared.Next(enemyNames.Count)];
+        return EnemyLoader.Create(name);
     }
 
     private void Fight(Enemy enemy)

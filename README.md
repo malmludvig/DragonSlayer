@@ -45,11 +45,14 @@ I striden kan du **attackera**, **dricka en läkedryck** eller försöka **fly**
 | `Sword.cs`, `Bow.cs`, `MagicWand.cs`, `Axe.cs` | Implementationer av `IWeapon` |
 | `Player.cs` | Composition – en Player *har ett* IWeapon som kan bytas |
 | `Game.cs` | Spelet: menyn, striderna, vilan och handlaren |
+| `enemies.json` | Vilka fiender som kan dyka upp på äventyret. Ett namn som står flera gånger dyker upp oftare. |
+| `EnemyLoader.cs` | Läser JSON-filen och gör om namnen till fiendeobjekt |
 | `Examples.cs` | Exemplen från lektionen, steg för steg |
 | `Program.cs` | Startmenyn |
 
 ## Bygg vidare
 
-- Lägg till en ny fiende, till exempel en `Skeleton`. Vad behöver du ändra i `Game.cs`?
+- Ändra i `enemies.json` så att det kommer fler drakar.
+- Lägg till en ny fiende, till exempel en `Skeleton`. Vad behöver du ändra i `EnemyLoader.cs` och `enemies.json`?
 - Lägg till ett nytt vapen hos handlaren.
 - Låt Drakkungen göra dubbel skada var tredje runda.
